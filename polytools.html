@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8">
+    <title>Polyglots Tools</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <section id="sez-termine">
+        <form>
+            <div>
+                <label>Termine:
+                    <input name="termine" id="termine">
+                </label>
+            </div>
+        </form>
+        <button type=button onclick="eseguiRicerca()">
+            Scatena la ricerca
+        </button>
+    </section>
+    <hr>
+    <section id="sez-ricerca">
+        <div id="WRENIT"></div>
+    </section>
+</body>
+<script>
+function eseguiRicerca() {
+    var termine = document.querySelector("div input[name='termine']").value;
+
+    /* aggiungere controllo input */
+
+    if (!termine) { void(window.open('http://www.wordreference.com/enit/')) };
+
+    if (termine) {
+
+        void(window.open('http://www.wordreference.com/enit/' + encodeURIComponent(termine) + '?v=pop', 'WordReference', 'width=900,height=900,resizable=yes,scrollbars=yes'));
+
+        void(window.open('https://translate.wordpress.org/consistency?search=' + encodeURIComponent(termine) + '&set=it%2Fdefault&project=', 'Consistency Tool', 'width=900,height=900,resizable=yes,scrollbars=yes'));
+
+        //void(window.open('http://www.treccani.it/vocabolario/' + encodeURIComponent(termine) + '/', 'Treccani - Vocabolario', 'width=900,height=900,resizable=yes,scrollbars=yes'));
+        //void(window.open('http://www.treccani.it/vocabolario/' + encodeURIComponent(termine) + '_(Sinonimi-e-Contrari)', 'Treccani - Sinonimi e Contrari', 'width=900,height=900,resizable=yes,scrollbars=yes'));
+
+    }
+
+
+
+}
+</script>
+
+</html>
