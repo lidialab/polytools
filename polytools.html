@@ -11,39 +11,63 @@
 </head>
 
 <body>
-    <section id="sez-termine">
+    <section id="sez-termine-inglese">
         <form>
             <div>
                 <label>Termine:
-                    <input name="termine" id="termine">
+                    <input name="termineEn" id="termineEn">
                 </label>
             </div>
         </form>
-        <button type=button onclick="eseguiRicerca()">
+        <button type=button onclick="eseguiRicercaEn()">
             Scatena la ricerca
         </button>
     </section>
     <hr>
-    <section id="sez-ricerca">
-        <div id="WRENIT"></div>
+    <section id="sez-termine-italiano">
+        <form>
+            <div>
+                <label>Termine:
+                    <input name="termineIt" id="termineIt">
+                </label>
+            </div>
+        </form>
+        <button type=button onclick="eseguiRicercaIt()">
+            Scatena la ricerca
+        </button>
     </section>
 </body>
 <script>
-function eseguiRicerca() {
-    var termine = document.querySelector("div input[name='termine']").value;
+function eseguiRicercaEn() {
+    var termineEn = document.querySelector("div input[name='termineEn']").value;
 
     /* aggiungere controllo input */
 
-    if (!termine) { void(window.open('http://www.wordreference.com/enit/')) };
+    if (!termineEn) { void(window.open('http://www.wordreference.com/enit/')) };
 
-    if (termine) {
+    if (termineEn) {
 
-        void(window.open('http://www.wordreference.com/enit/' + encodeURIComponent(termine) + '?v=pop', 'WordReference', 'width=900,height=900,resizable=yes,scrollbars=yes'));
+        void(window.open('http://www.wordreference.com/enit/' + encodeURIComponent(termineEn) + '?v=pop', 'WordReference', 'width=900,height=900,resizable=yes,scrollbars=yes'));
 
-        void(window.open('https://translate.wordpress.org/consistency?search=' + encodeURIComponent(termine) + '&set=it%2Fdefault&project=', 'Consistency Tool', 'width=900,height=900,resizable=yes,scrollbars=yes'));
+        void(window.open('https://translate.wordpress.org/consistency?search=' + encodeURIComponent(termineEn) + '&set=it%2Fdefault&project=', 'Consistency Tool', 'width=900,height=900,resizable=yes,scrollbars=yes'));
 
-        //void(window.open('http://www.treccani.it/vocabolario/' + encodeURIComponent(termine) + '/', 'Treccani - Vocabolario', 'width=900,height=900,resizable=yes,scrollbars=yes'));
-        //void(window.open('http://www.treccani.it/vocabolario/' + encodeURIComponent(termine) + '_(Sinonimi-e-Contrari)', 'Treccani - Sinonimi e Contrari', 'width=900,height=900,resizable=yes,scrollbars=yes'));
+    }
+}
+
+function eseguiRicercaIt() {
+    var termineIt = document.querySelector("div input[name='termineIt']").value;
+
+    /* aggiungere controllo input */
+
+    if (!termineIt) { void(window.open('https://www.google.it/')) };
+
+    if (termineIt) {
+
+
+
+        void(window.open('http://www.treccani.it/vocabolario/' + encodeURIComponent(termineIt.toLowerCase()) + '/', 'Treccani - Vocabolario', 'width=900,height=900,resizable=yes,scrollbars=yes'));
+
+        void(window.open('http://www.treccani.it/vocabolario/' + encodeURIComponent(termineIt.toLowerCase()) + '_(Sinonimi-e-Contrari)', 'Treccani - Sinonimi e Contrari', 'width=900,height=900,resizable=yes,scrollbars=yes'));
 
     }
 
