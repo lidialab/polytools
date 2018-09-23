@@ -2,74 +2,184 @@
 <html lang="it">
 
 <head>
-    <meta charset="utf-8">
-    <title>Polyglots Tools</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style type="text/css">
+   <meta charset="utf-8">
+   <title>Polyglots Tools</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <style type="text/css">
+   /*
+======================================================
+    WordPress Colors Palette
+======================================================
+    Blue #21759b    RGB 33, 117, 155
+    Orange #d54e21  RGB 213, 78, 33
+    Grey #464646    RGB 70, 70, 70
+*/
 
-    </style>
+   * {
+      color: #f1f2f1;
+      font-family: verdana, sans-serif;
+   }
+
+   body {
+      font-size: 1.125rem;
+      background-color: #464646;
+   }
+
+   button {
+      background-color: #464646;
+      border-color: #f1f2f1;
+      border-style: solid;
+      padding: 0.5em 1em;
+      margin: 0.25em;
+   }
+
+   input {
+      background-color: #464646;
+      border-color: #f1f2f1;
+      border-style: solid;
+      padding: 0.15em;
+      margin: 0.25em;
+   }
+
+   .box {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+   }
+
+   .flex-box {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+   }
+
+   .flex-elem {
+      min-width: 350px;
+      max-width: 350px;
+      flex: 1;
+      border: 1px solid #d54e21;
+      padding: 1em;
+   }
+   </style>
 </head>
 
 <body>
-    <section id="sez-termine-inglese">
-        <form>
-            <div>
-                <label>Termine:
-                    <input name="termineEn" id="termineEn">
-                </label>
+   <h1>Lista di controllo per esaminare un termine</h1>
+   <div class="flex-box">
+      <div class="flex-elem">
+         <h2>Strumenti</h2>
+         <section id="sez-termine-inglese">
+            <div class="box">
+               <form>
+                  <label>Termine Inglese:
+                     <input name="termineEn" id="termineEn">
+                  </label>
+                  <fieldset>
+                     <legend> Strumenti disponibili online </legend>
+                     <div>
+                        <label>
+                           <input type=checkbox name="wordreference" value="wordreference"> WordReference ENIT </label>
+                     </div>
+                     <div>
+                        <label>
+                           <input type=checkbox name="consistencytool" value="consistencytool"> Consistency Tool </label>
+                     </div>
+                     <div>
+                        <label>
+                           <input type=checkbox name="glossarioWPita" value="glossarioWPita" checked="checked"> Glossario Polyglots italiani </label>
+                     </div>
+                  </fieldset>
+               </form>
             </div>
-        </form>
-        <button type=button onclick="eseguiRicercaEn()">
-            Scatena la ricerca
-        </button>
-    </section>
-    <hr>
-    <section id="sez-termine-italiano">
-        <form>
-            <div>
-                <label>Termine:
-                    <input name="termineIt" id="termineIt">
-                </label>
+            <button type=button onclick="eseguiRicercaEn()">
+               Scatena la ricerca (EN)
+            </button>
+         </section>
+         <hr>
+         <section id="sez-termine-italiano">
+            <div class="box">
+               <form>
+                  <label>Termine Italiano:
+                     <input name="termineIt" id="termineIt">
+                  </label>
+                  <fieldset>
+                     <legend> Strumenti disponibili online </legend>
+                     <div>
+                        <label>
+                           <input type=checkbox name="treccanivoc" value="treccanivoc"> Treccani Vocabolario </label>
+                     </div>
+                     <div>
+                        <label>
+                           <input type=checkbox name="treccanisincon" value="treccanisincon"> Treccani Sinonimi e Contrari</label>
+                     </div>
+                  </fieldset>
+               </form>
             </div>
-        </form>
-        <button type=button onclick="eseguiRicercaIt()">
-            Scatena la ricerca
-        </button>
-    </section>
+            <button type=button onclick="eseguiRicercaIt()">
+               Scatena la ricerca (IT)
+            </button>
+         </section>
+      </div>
+      <div class="flex-elem">
+         <section>
+            <h2>Risorse</h2>
+            <ul>
+               <li><a href="http://iate.europa.eu/SearchByQueryEdit.do">Iate Europa</a></li>
+               <li></li>
+               <li></li>
+            </ul>
+         </section>
+      </div>
+   </div>
 </body>
 <script>
 function eseguiRicercaEn() {
-    var termineEn = document.querySelector("div input[name='termineEn']").value;
+   var termineEn = document.querySelector( "div input[name='termineEn']" ).value;
 
-    /* aggiungere controllo input */
+   /* aggiungere controllo input */
 
-    if (!termineEn) { void(window.open('http://www.wordreference.com/enit/')) };
+   if ( !termineEn ) { void( window.open( 'http://www.wordreference.com/enit/', 'WordReference', 'width=900,height=900,resizable=yes,scrollbars=yes' ) ) };
 
-    if (termineEn) {
+   if ( termineEn ) {
 
-        void(window.open('http://www.wordreference.com/enit/' + encodeURIComponent(termineEn) + '?v=pop', 'WordReference', 'width=900,height=900,resizable=yes,scrollbars=yes'));
+      if ( document.querySelector( "div input[name='wordreference']" ).checked ) {
 
-        void(window.open('https://translate.wordpress.org/consistency?search=' + encodeURIComponent(termineEn) + '&set=it%2Fdefault&project=', 'Consistency Tool', 'width=900,height=900,resizable=yes,scrollbars=yes'));
+         void( window.open( 'http://www.wordreference.com/enit/' + encodeURIComponent( termineEn ) + '?v=pop', 'WordReference', 'width=900,height=900,resizable=yes,scrollbars=yes' ) );
+      }
 
-    }
+
+      if ( document.querySelector( "div input[name='consistencytool']" ).checked ) {
+
+         void( window.open( 'https://translate.wordpress.org/consistency?search=' + encodeURIComponent( termineEn ) + '&set=it%2Fdefault&project=', 'Consistency Tool', 'width=900,height=900,resizable=yes,scrollbars=yes' ) );
+      }
+
+   }
+
+   if ( document.querySelector( "div input[name='glossarioWPita']" ).checked ) {
+
+      void( window.open( 'https://translate.wordpress.org/locale/it/default/glossary', 'Glossario Polyglots italiani', 'width=900,height=900,resizable=yes,scrollbars=yes' ) );
+   }
 }
 
 function eseguiRicercaIt() {
-    var termineIt = document.querySelector("div input[name='termineIt']").value;
+   var termineIt = document.querySelector( "div input[name='termineIt']" ).value;
 
-    /* aggiungere controllo input */
+   /* aggiungere controllo input */
 
-    if (!termineIt) { void(window.open('https://www.google.it/')) };
+   if ( !termineIt ) { void( window.open( 'https://www.google.it/', 'Google', 'width=900,height=900,resizable=yes,scrollbars=yes' ) ) };
 
-    if (termineIt) {
+   if ( termineIt ) {
 
+      if ( document.querySelector( "div input[name='treccanivoc']" ).checked ) {
 
+         void( window.open( 'http://www.treccani.it/vocabolario/' + encodeURIComponent( termineIt.toLowerCase() ) + '/', 'Treccani - Vocabolario', 'width=900,height=900,resizable=yes,scrollbars=yes' ) );
+      }
 
-        void(window.open('http://www.treccani.it/vocabolario/' + encodeURIComponent(termineIt.toLowerCase()) + '/', 'Treccani - Vocabolario', 'width=900,height=900,resizable=yes,scrollbars=yes'));
+      if ( document.querySelector( "div input[name='treccanisincon']" ).checked ) {
 
-        void(window.open('http://www.treccani.it/vocabolario/' + encodeURIComponent(termineIt.toLowerCase()) + '_(Sinonimi-e-Contrari)', 'Treccani - Sinonimi e Contrari', 'width=900,height=900,resizable=yes,scrollbars=yes'));
+         void( window.open( 'http://www.treccani.it/vocabolario/' + encodeURIComponent( termineIt.toLowerCase() ) + '_(Sinonimi-e-Contrari)', 'Treccani - Sinonimi e Contrari', 'width=900,height=900,resizable=yes,scrollbars=yes' ) );
+      }
 
-    }
+   }
 
 
 
