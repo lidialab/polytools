@@ -10,9 +10,9 @@
 ======================================================
     WordPress Colors Palette
 ======================================================
-    Blue #21759b    RGB 33, 117, 155
-    Orange #d54e21  RGB 213, 78, 33
-    Grey #464646    RGB 70, 70, 70
+    Blue    #21759b     RGB 33, 117, 155
+    Orange  #d54e21     RGB 213, 78, 33
+    Grey    #464646     RGB 70, 70, 70
 */
 
    * {
@@ -85,6 +85,30 @@
                      </div>
                      <div>
                         <label>
+                           <input type=checkbox name="portalemicrosoft" value="portalemicrosoft"> Portale Microsoft </label>
+                     </div>
+                     <div>
+                        <label>
+                           <input type=checkbox name="alternativeaa" value="alternativeaa"> Alternative agli anglicismi </label>
+                     </div>
+                     <div>
+                        <label>
+                           <input type=checkbox name="merriamwebster" value="merriamwebster"> Merriam Webster </label>
+                     </div>
+                     <div>
+                        <label>
+                           <input type=checkbox name="wiktionary" value="wiktionary"> Wiktionary </label>
+                     </div>
+                     <div>
+                        <label>
+                           <input type=checkbox name="portalelinguee" value="portalelinguee"> Linguee </label>
+                     </div>
+                     <div>
+                        <label>
+                           <input type=checkbox name="italianourgente" value="italianourgente"> Italiano Urgente </label>
+                     </div>
+                     <div>
+                        <label>
                            <input type=checkbox name="glossarioWPita" value="glossarioWPita" checked="checked"> Glossario Polyglots italiani </label>
                      </div>
                   </fieldset>
@@ -121,11 +145,25 @@
       </div>
       <div class="flex-elem">
          <section>
+            <h2>Pagina Traduci</h2>
+            <ul>
+               <li><a href="https://it.wordpress.org/traduzioni/">Traduci</a></li>
+               <li><a href="https://it.wordpress.org/traduzioni#reg_stili">Regole e stili</a></li>
+               <li><a href="https://it.wordpress.org/traduzioni#reg_gram">Regole ortografiche e grammaticali</a></li>
+               <li><a href="https://it.wordpress.org/traduzioni#reg_cons">Suggerimenti</a></li>
+               <li><a href="https://it.wordpress.org/traduzioni#tools">Strumenti e utilities</a></li>
+               <li><a href="https://make.wordpress.org/polyglots/handbook/frequently-asked-questions/">FAQ handbook</a></li>
+
+            </ul>
             <h2>Risorse</h2>
             <ul>
-               <li><a href="http://iate.europa.eu/SearchByQueryEdit.do">Iate Europa</a></li>
-               <li></li>
-               <li></li>
+               <li><a href="http://iate.europa.eu">Iate Europa</a></li>
+               <li><a href="https://dictionary.cambridge.org/grammar/british-grammar/">Cambridge.org Grammar</a></li>
+               <li><a href="https://dictionary.cambridge.org/dictionary/english/">Cambridge.org english dictionary</a></li>
+               <li><a href="https://dictionary.cambridge.org/dictionary/english-italian/">Cambridge.org english-italian</a></li>
+               <li><a href="https://en.oxforddictionaries.com/">UK Oxford dictionaries</a></li>
+               <li><a href="https://en.oxforddictionaries.com/definition/us/modal">US Oxford dictionaries</a></li>
+               <li><a href="https://www.collinsdictionary.com/it/">Collins dictionary</a></li>
             </ul>
          </section>
       </div>
@@ -152,8 +190,41 @@ function eseguiRicercaEn() {
          void( window.open( 'https://translate.wordpress.org/consistency?search=' + encodeURIComponent( termineEn ) + '&set=it%2Fdefault&project=', 'Consistency Tool', 'width=900,height=900,resizable=yes,scrollbars=yes' ) );
       }
 
+
+      if ( document.querySelector( "div input[name='portalemicrosoft']" ).checked ) {
+
+         void( window.open( 'https://www.microsoft.com/it-it/language/Search?&searchTerm=' + encodeURIComponent( termineEn ) + '&langID=italiano&Source=true&productid=Tutti%20i%20prodotti', 'Portale Linguistico Microsoft', 'width=900,height=900,resizable=yes,scrollbars=yes' ) );
+      }
+
+
+      if ( document.querySelector( "div input[name='alternativeaa']" ).checked ) {
+
+         void( window.open( 'https://aaa.italofonia.info/?s=' + encodeURIComponent( termineEn ), 'Alternative agli anglicismi', 'width=900,height=900,resizable=yes,scrollbars=yes' ) );
+      }
+
+
+      if ( document.querySelector( "div input[name='merriamwebster']" ).checked ) {
+
+         void( window.open( 'https://www.merriam-webster.com/dictionary/' + encodeURIComponent( termineEn ), 'Merriam Webster', 'width=900,height=900,resizable=yes,scrollbars=yes' ) );
+      }
+
+      if ( document.querySelector( "div input[name='wiktionary']" ).checked ) {
+
+         void( window.open( 'https://en.wiktionary.org/wiki/' + encodeURIComponent( termineEn ), 'Wiktionary', 'width=900,height=900,resizable=yes,scrollbars=yes' ) );
+      }
+
+
+      if ( document.querySelector( "div input[name='portalelinguee']" ).checked ) {
+
+         void( window.open( 'https://www.linguee.it/italiano-inglese/search?source=auto&query=' + encodeURIComponent( termineEn ), 'Portale Linguee', 'width=900,height=900,resizable=yes,scrollbars=yes' ) );
+      }
+
    }
 
+   if ( document.querySelector( "div input[name='italianourgente']" ).checked ) {
+
+      void( window.open( 'http://www.italianourgente.it/', 'Italiano Urgente', 'width=900,height=900,resizable=yes,scrollbars=yes' ) );
+   }
    if ( document.querySelector( "div input[name='glossarioWPita']" ).checked ) {
 
       void( window.open( 'https://translate.wordpress.org/locale/it/default/glossary', 'Glossario Polyglots italiani', 'width=900,height=900,resizable=yes,scrollbars=yes' ) );
